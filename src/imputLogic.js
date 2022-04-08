@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
+import choosenSong from "./randomSong";
 
-// TODO: rename component to something more meaningful
-function UserInput({todaysSong}) {
+function GuessComponent({todaysSong, setChosenSong}) {
 const [guess, setGuess] = useState('')
 const [guesses, setGuesses] = useState([])
+
   
-// TODO: rename to onInputChange
-const addGuess = (event) => {
+const onInputChange = (event) => {
   setGuess(event.target.value)
 }
 
-// TODO: rename to onGuessSubmit 
-const allGuesses = () => {
+const onGuessSubmit = () => {
   setGuesses(guesses.concat([guess]))
 }
 
 const resetGuesses = () => {
   setGuesses([])
+  setChosenSong(choosenSong())
 }
 
   if(guesses.length < 5) {
@@ -27,8 +27,8 @@ const resetGuesses = () => {
           guesses.map((guess) => (<p className='guess'>{guess}</p>))
         }
         </div>
-        <input className='userInput' onChange={addGuess}type="text" />
-        <button onClick={allGuesses}className="guess">Guess</button>
+        <input className='userInput' onChange={onInputChange}type="text" />
+        <button onClick={onGuessSubmit}className="guess">Guess</button>
       </div>
     )
   }
@@ -44,4 +44,4 @@ const resetGuesses = () => {
   
 }
 
-export default UserInput
+export default GuessComponent

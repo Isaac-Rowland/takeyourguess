@@ -1,6 +1,4 @@
-function choosenSong() {
-  //TODO: Separate data from function to randomly choose song
-  const songs = {
+const songs = {
   1:"Six Feet Under",
   2:"Sex and the City",
   3:"Ally McBeal",
@@ -115,16 +113,4 @@ function choosenSong() {
   112:"Total drama island"
   }
 
-  return songs[(Math.floor(Math.random() * Object.keys(songs).length))]
-}
-
-
-export default choosenSong
-
-
-
-
-
-
-
-
+  export default songs

@@ -1,13 +1,28 @@
 import './App.css';
-import GuessPage from './GuessPage';
+import { useState, useEffect } from "react";
+import choosenSong from "./randomSong";
+import GuessComponent from "./imputLogic";
+import { setSongUri } from './apiData';
 
 function App() {
-  // TODO: Move state variables here
-  // make api calls here
+  
+    const[song, setSong] = useState()
+    const [token, setToken] = useState('')
+    const [todaysSong, setTodaysSong] = useState(choosenSong())
+    
+    useEffect(() => {
+      setSongUri(todaysSong, setSong)
+    }, [todaysSong])
+
 
   return (
     <div className="App">
-      <GuessPage />
+      <div className="gamePage">
+        <GuessComponent 
+        todaysSong={todaysSong}
+        setChosenSong={setTodaysSong}
+        />
+      </div>
     </div>
   );
 }

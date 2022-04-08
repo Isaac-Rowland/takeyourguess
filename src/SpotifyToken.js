@@ -1,5 +1,5 @@
 import axios from "axios";
-import choosenSong from "./songsList";
+import choosenSong from "./randomSong";
 import qs from 'qs';
 
 async function spotifyToken() {

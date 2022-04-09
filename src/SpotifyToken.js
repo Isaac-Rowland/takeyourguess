@@ -1,11 +1,10 @@
 import axios from "axios";
-import choosenSong from "./randomSong";
 import qs from 'qs';
 
 async function spotifyToken() {
 
-  const client_id = "5b88bfa209e0421bb18bded58a8bc464"
-  const client_secret = "a2ac08bc395c48879c9bd88e31bd6a90"
+  const client_id = "4a5e0f50e45c4c7e95ad0ad5f7e32619"
+  const client_secret = "4e54cb156fe84879975f3a3333e4f7ed"
 
   const headers = {
     headers: {

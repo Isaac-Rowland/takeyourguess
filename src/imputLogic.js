@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import choosenSong from "./randomSong";
+import TryAgain from './TryAgain';
 
 function GuessComponent({todaysSong, setChosenSong}) {
 const [guess, setGuess] = useState('')
@@ -33,13 +34,10 @@ const resetGuesses = () => {
     )
   }
   else return (
-    // TODO: Move this out to a separate 
-    // <TryAgain song={todaysSong} onClick={resetGuesses}/> component
-    <div>
-      <h2>Nice try</h2>
-      <h3>The correct theme was {todaysSong}</h3>
-      <button onClick={resetGuesses}>Try again with a new theme</button>
-    </div>
+    <TryAgain 
+    resetGuesses={resetGuesses}
+    todaysSong={todaysSong}
+    />
   )
   
 }

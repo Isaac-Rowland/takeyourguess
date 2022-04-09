@@ -5,6 +5,7 @@ import GuessComponent from "./imputLogic";
 import { setSongUri } from './apiData';
 import Player from './player';
 import WebPlayback from './WebPlayBack';
+import { YoutubePlayer } from './YoutubePlayer';
 
 function App() {
   
@@ -12,8 +13,10 @@ function App() {
     const [token, setToken] = useState('')
     const [todaysSong, setTodaysSong] = useState(choosenSong())
     
+   
+
     useEffect(() => {
-      setSongUri(todaysSong, setSong)
+      // setSongUri(todaysSong, setSong)
     }, [todaysSong])
 
 
@@ -24,8 +27,7 @@ function App() {
         todaysSong={todaysSong}
         setChosenSong={setTodaysSong}
         />
-        <WebPlayback token="BQDU2ctJyTB6xdbpx4MPZjm6SLohCdgFJrjUW52NdPpobco7V83lNY5ZCJFRlO2spse6o2fPhn_vmRCrHKroyLUTLdgBJQ8gCMTVINGus1BUG9EKYBzOR85TfSeNICTf1zZeDjhfXGQ4ImqIylNunI2ZZyehqanKVsc
-"/>
+        <YoutubePlayer />
       </div>
     </div>
   );

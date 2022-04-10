@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #dfe7fb;
+  font-family: 'Varela Round', sans-serif;
+}
+
+h1 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 5rem;
+  color: orangered;
 }
 
 code {
@@ -12,6 +20,12 @@ code {
     monospace;
 }
 
+.instructions {
+  border: 8px double rgb(155, 155, 245);
+  max-width: 25rem;
+  margin: auto;
+  padding: 1rem 3rem;
+}
 
 
 
@@ -24,5 +38,43 @@ code {
 .guessBox {
   padding: 16px;
   height: 200px;
-  margin: 16px;
+  max-width: 30rem;
+  margin: 16px auto 0 auto;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.incorrectContainer{
+  display: flex;
+  color: red;
+  align-items: center;
+  justify-content: center;
+}
+
+.guessControls {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+  max-width: 30rem;
+  margin: auto;
+  filter: drop-shadow(0 0.5rem 0.2rem rgb(181, 193, 255));
+}
+
+.incorrectGuess {
+  margin: 1rem;
+}
+
+.player {
+  display: none;
+}
+
+.audioControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  border: 5px solid #dfe7fb;
+  border-radius: 10px;
+  background-color: white;
+  filter: drop-shadow(0 0.2rem 0.2rem rgb(104, 104, 104));
 }

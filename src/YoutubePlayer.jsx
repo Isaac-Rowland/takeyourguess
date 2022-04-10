@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { updateAudioPlayer } from "./AudioPlayer";
+
+
 
 export const playVideo = (endTime, songId) => {
   window.player.loadVideoById({videoId: songId, startSeconds: 4, endSeconds: endTime})
+  updateAudioPlayer(endTime)
 }
 
 export function YoutubePlayer({songId}) {
@@ -37,7 +41,7 @@ export function YoutubePlayer({songId}) {
   }, []);
   return (
     <>
-      <div id="player">
+      <div className="player" id="player">
       </div>
     </>
   );

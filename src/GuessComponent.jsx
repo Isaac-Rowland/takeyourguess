@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import choosenSong from "./randomSong";
 import TryAgain from './TryAgain';
+import { playVideo } from './YoutubePlayer';
 
-function GuessComponent({todaysSong, setChosenSong}) {
+function GuessComponent({todaysSong, setTodaysSong, songId}) {
 const [guess, setGuess] = useState('')
 const [guesses, setGuesses] = useState([])
+const [endTime, setEndTime] = useState(6)
+
 
   
 const onInputChange = (event) => {
@@ -13,11 +16,21 @@ const onInputChange = (event) => {
 
 const onGuessSubmit = () => {
   setGuesses(guesses.concat([guess]))
+  if (isGuessCorrect(guess, todaysSong)){
+    console.log('nice work')
+  }
+  else{
+    setEndTime(endTime+2)
+  }
 }
+
+const isGuessCorrect = (guess, todaysSong) => (
+  guess === todaysSong
+)
 
 const resetGuesses = () => {
   setGuesses([])
-  setChosenSong(choosenSong())
+  setTodaysSong(choosenSong())
 }
 
   if(guesses.length < 5) {
@@ -30,6 +43,8 @@ const resetGuesses = () => {
         </div>
         <input className='userInput' onChange={onInputChange}type="text" />
         <button onClick={onGuessSubmit}className="guess">Guess</button>
+        <button onClick={() => playVideo(endTime, songId)}>PLAY</button>
+        <p>{todaysSong}</p>
       </div>
     )
   }

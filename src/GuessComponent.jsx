@@ -5,6 +5,7 @@ import { playVideo } from './YoutubePlayer';
 import { AudioPlayer } from './AudioPlayer';
 import { PlayButton } from './playButton/PlayButton';
 import { Cross } from './incorrect';
+import songs from './songList'
 
 function GuessComponent({todaysSong, setTodaysSong, songId}) {
 const [guess, setGuess] = useState('')
@@ -74,8 +75,11 @@ const clearVideo = () => {
             }
           </div>
           <div className='guessControls'>
-              <input className='userInput' onChange={onInputChange} type="text" />
+              <input list="themesList" className='userInput' onChange={onInputChange} type="text" />
               <button onClick={onGuessSubmit}className="guess">Guess</button>
+              <datalist id="themesList">
+              {Object.values(songs).map(song => (<option value={song}/>))}
+              </datalist>
             </div>
           
           

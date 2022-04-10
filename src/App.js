@@ -2,21 +2,18 @@ import './App.css';
 import { useState, useEffect } from "react";
 import choosenSong from "./randomSong";
 import GuessComponent from "./imputLogic";
-import { setSongUri } from './apiData';
-import Player from './player';
-import WebPlayback from './WebPlayBack';
+import { getSongId } from './apiData';
 import { YoutubePlayer } from './YoutubePlayer';
 
 function App() {
   
-    const[song, setSong] = useState('')
-    const [token, setToken] = useState('')
+    const[songId, setSongId] = useState('')
     const [todaysSong, setTodaysSong] = useState(choosenSong())
-    
-   
+    const [endTime, setEndTime] = useState(1)
 
     useEffect(() => {
-      // setSongUri(todaysSong, setSong)
+      getSongId(todaysSong)
+      .then(id=> setSongId(id))
     }, [todaysSong])
 
 
@@ -27,7 +24,9 @@ function App() {
         todaysSong={todaysSong}
         setChosenSong={setTodaysSong}
         />
-        <YoutubePlayer />
+        <YoutubePlayer 
+        songId={songId}
+        />
       </div>
     </div>
   );

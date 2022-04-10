@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 
-export function YoutubePlayer() {
+export function YoutubePlayer({songId}) {
   const [endTime, setEndTime] = useState(3);
 // TODO endtime state with count in app.js
 // logic for matching guess and todaysSong
 // get youtube id
 // styles... hides youtube vid
   const handleGuessClick = () => {
-    window.player.loadVideoById({videoId: 'M7lc1UVf-VE', startSeconds: 0, endSeconds: 6})
+    window.player.loadVideoById({videoId: songId, startSeconds: 0, endSeconds: 6})
   }
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function YoutubePlayer() {
       window.player = new window.YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'M7lc1UVf-VE',
+        videoId: songId,
         playerVars: {
           'playsinline': 1,
           'end': endTime,

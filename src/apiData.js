@@ -1,22 +1,7 @@
 import axios from "axios";
-import spotifyToken from "./SpotifyToken";
 
 
-
-export const getUrl = async (token, todaysSong) => {
-  const header = {
-    headers: {
-    Accept: "application/json", 
-    "Content-Type": "application/json", 
-    Authorization: `Bearer ${token}`
-    }
-  }
-  const res = await axios.get(`https://api.spotify.com/v1/search?q=$${todaysSong}%20theme&type=track`, header)
-  return res.data.tracks.items[0].uri
-}
-
-export function setSongUri(todaysSong, setSong) {
-  spotifyToken()
-  .then(token => getUrl(token, todaysSong))
-  .then(song => setSong(song))
+export async function getSongId(todaysSong) {
+  const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${todaysSong}theme&key=${process.env.REACT_APP_YOUTUBEKEY}`)
+  return res.data.items[0].id.videoId
 }

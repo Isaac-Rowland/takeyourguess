@@ -1,6 +1,6 @@
 # Guess that theme song
 
-Would you like to join in on the fun [Click here](https://guess-that-theme-song.herokuapp.com/)
+Would you like to join in on the fun [Click here](https://takeyourguess.vercel.app/)
 
 This is a game built using react, where a user guesses a famous theme song within a time constraint. 
 
